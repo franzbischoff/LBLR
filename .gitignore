@@ -1,3 +1,5 @@
 .history
 .mypy_cache
 Experiments/**/*.txt
+Experiments/**/*.fig
+Experiments/**/*.mat
