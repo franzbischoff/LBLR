@@ -27,6 +27,8 @@ function Encoding = HuffmanEncoding(T)
     Symbols = A(A(:, 2) ~= 0, 1);
     Probabilities = A(A(:, 2) ~= 0, 3) / 100;
 
-    if (numel(Symbols) == 1) Encoding = 1;
-    else Encoding = huffmanenco(T(~isnan(T)), huffmandict(Symbols, Probabilities));
+    if (numel(Symbols) == 1)
+        Encoding = 1;
+    else
+        Encoding = huffmanenco(T(~isnan(T)), huffmandict(Symbols, Probabilities));
     end

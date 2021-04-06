@@ -309,8 +309,10 @@ function [Labels, PlotHandles, Completion] = AutoLBLR(TimeSeries, ModelLength, v
 
                 set(0, 'CurrentFigure', PlotHandles(1))
 
-                if (L == -1) plot(TimeSeriesIDX{i}(1):min(TimeSeriesIDX{i}(end) + 1, numel(INPUTS.TimeSeries)), INPUTS.TimeSeries(TimeSeriesIDX{i}(1):min(TimeSeriesIDX{i}(end) + 1, numel(INPUTS.TimeSeries))), 'color', 'black', 'LineWidth', 2);
-                else plot(TimeSeriesIDX{i}(1):min(TimeSeriesIDX{i}(end) + 1, numel(INPUTS.TimeSeries)), INPUTS.TimeSeries(TimeSeriesIDX{i}(1):min(TimeSeriesIDX{i}(end) + 1, numel(INPUTS.TimeSeries))), 'color', INPUTS.Colors{L}, 'LineWidth', 2);
+                if (L == -1)
+                    plot(TimeSeriesIDX{i}(1):min(TimeSeriesIDX{i}(end) + 1, numel(INPUTS.TimeSeries)), INPUTS.TimeSeries(TimeSeriesIDX{i}(1):min(TimeSeriesIDX{i}(end) + 1, numel(INPUTS.TimeSeries))), 'color', 'black', 'LineWidth', 2);
+                else
+                    plot(TimeSeriesIDX{i}(1):min(TimeSeriesIDX{i}(end) + 1, numel(INPUTS.TimeSeries)), INPUTS.TimeSeries(TimeSeriesIDX{i}(1):min(TimeSeriesIDX{i}(end) + 1, numel(INPUTS.TimeSeries))), 'color', INPUTS.Colors{L}, 'LineWidth', 2);
                 end
 
                 % Clear the dataset from the set of contiguous unlabeled datasets
@@ -395,10 +397,14 @@ function [L] = AutoClassify(TimeSeriesIDX, Labels)
         rightLabel = Labels(TimeSeriesIDX(2) + 1);
     end
 
-    if (LeftLabel == rightLabel) L = LeftLabel;
-    elseif (LeftLabel == 0) L = rightLabel;
-    elseif (rightLabel == 0) L = LeftLabel;
-    else L = -1;
+    if (LeftLabel == rightLabel)
+        L = LeftLabel;
+    elseif (LeftLabel == 0)
+        L = rightLabel;
+    elseif (rightLabel == 0)
+        L = LeftLabel;
+    else
+        L = -1;
     end
 
 end

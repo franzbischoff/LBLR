@@ -600,9 +600,9 @@ function scrollHandles = scrollplot(varargin)
                                     axName = get(hScroll, 'userdata');
 
                                     if strcmpi(axName, 'x')
-                                        otherAxName = 'y'; %#ok mlint mistaken warning - used below
+                                        otherAxName = 'y';
                                     else % Y scroll
-                                        otherAxName = 'x'; %#ok mlint mistaken warning - used below
+                                        otherAxName = 'x';
                                     end
 
                                     dataStr = [axName 'Data'];
@@ -1178,7 +1178,7 @@ function scrollHandles = scrollplot(varargin)
 
                                                                     inTest = abs(cx - barXs) < fuzz; %(barXs-fuzz < cx) & (cx < barXs+fuzz);
                                                                     scrollBarIdx = find(inTest);
-                                                                    scrollBarIdx = scrollBarIdx(min(1:end)); %#ok - find(x,1) is unsupported on Matlab 6!
+                                                                    scrollBarIdx = scrollBarIdx(min(1:end));
 
                                                                     if strcmpi(get(hAx, [axName 'Scale']), 'log')
                                                                         cx = 10^cx; % used below

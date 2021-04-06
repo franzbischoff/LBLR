@@ -655,10 +655,14 @@ function varargout = LBLR(varargin)
                                                                                                                 rightLabel = Labels(DataIDX(2) + 1);
                                                                                                             end
 
-                                                                                                            if (LeftLabel == rightLabel) L = LeftLabel;
-                                                                                                            elseif (LeftLabel == 0) L = rightLabel;
-                                                                                                            elseif (rightLabel == 0) L = LeftLabel;
-                                                                                                            else L = -1;
+                                                                                                            if (LeftLabel == rightLabel)
+                                                                                                                L = LeftLabel;
+                                                                                                            elseif (LeftLabel == 0)
+                                                                                                                L = rightLabel;
+                                                                                                            elseif (rightLabel == 0)
+                                                                                                                L = LeftLabel;
+                                                                                                            else
+                                                                                                                L = -1;
                                                                                                             end
 
                                                                                                             function [Range] = GetRange(IDX, Length)
