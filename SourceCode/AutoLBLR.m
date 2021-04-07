@@ -248,6 +248,17 @@ function [Labels, PlotHandles, Completion] = AutoLBLR(TimeSeries, ModelLength, v
 
             % Greedily sets the label as the highest frequency label in the corresponding indices of the solution vector
             Label = mode(INPUTS.Solution(GetRange(MotifIDX, INPUTS.ModelLength)));
+
+            if (Label == 0)
+
+                if (INPUTS.Debug)
+                    fprintf(fileID, '[AutoLBLR] Label is ZERO.\n');
+                    fprintf(fileID, '\n');
+                end
+
+                Label = 1;
+            end
+
             MDL_IDX_Label = arrayfun(@(x) mode(INPUTS.Solution(GetRange(x, INPUTS.ModelLength))), MDL_IDX);
 
             if (INPUTS.Debug)
